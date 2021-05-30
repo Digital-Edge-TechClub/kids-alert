@@ -1,7 +1,8 @@
-//import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-
+import Home from "./Components/home";
+import Contact from "./Components/contact";
+import About from "./Components/about";
 
 
 

@@ -27,10 +27,16 @@ class App extends React.Component {
       };
 
       axios.request(options).then(function (response) {
+
+          window.speechSynthesis.cancel();
           var msg = new SpeechSynthesisUtterance();
-          msg.text = response.data.articles[1].title + response.data.articles[1].summary;
+          let articleNumber = Math.floor(Math.random() * 11);//any article in the top 10
+          msg.text = response.data.articles[articleNumber].title + response.data.articles[articleNumber].summary;
           window.speechSynthesis.speak(msg);
-          
+        
+
+
+
 
       }).catch(function (error) {
         console.error(error);
@@ -41,7 +47,7 @@ class App extends React.Component {
   render() {
     return (
       <button onClick={this.handlelistenClick}>
-        Listen
+        Read
       </button>
     );
   }
